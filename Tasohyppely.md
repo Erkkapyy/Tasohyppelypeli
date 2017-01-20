@@ -4,6 +4,6 @@
 **Käyttäjät**: Pelaaja
 
 **Kaikkien käyttäjien toiminnot**: 
-	- Hahmon liikuttaminen vasemmalle/oikealle
-	- Hahmolla hyppääminen
-	- Hahmolla hyökkääminen
+- Hahmon liikuttaminen vasemmalle/oikealle
+- Hahmolla hyppääminen
+- Hahmolla hyökkääminen

@@ -13,6 +13,9 @@ import java.awt.Graphics2D;
  */
 public class MenuTila extends Pelitila{
 
+    public MenuTila(PelitilaManager pm) {
+        this.pm = pm;
+    }
     @Override
     public void init() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

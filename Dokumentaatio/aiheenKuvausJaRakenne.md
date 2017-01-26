@@ -7,3 +7,8 @@
 - Hahmon liikuttaminen vasemmalle/oikealle
 - Hahmolla hyppääminen
 - Hahmolla hyökkääminen
+
+
+**Määrittelyvaiheen luokkakaavio**:
+
+![Luokkakaavio](https://yuml.me/ff532cb5)

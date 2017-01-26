@@ -16,7 +16,7 @@ public class PeliPaneeli extends JPanel implements Runnable, KeyListener{
     private int FPS = 60;
     private long targetTime = 1000/FPS;
     
-    private BufferedImage image;
+    private BufferedImage kuva;
     private Graphics2D g;
     
     public PeliPaneeli() {
@@ -26,6 +26,7 @@ public class PeliPaneeli extends JPanel implements Runnable, KeyListener{
         requestFocus();
     }
     
+    @Override
     public void addNotify() {
         super.addNotify();
         if(thread==null) {
@@ -33,10 +34,33 @@ public class PeliPaneeli extends JPanel implements Runnable, KeyListener{
             addKeyListener(this);
         }
     }
+    
+    public void init() {
+        kuva = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+        g = (Graphics2D) g;
+        running = true;
+    }
+    
+    private void update() {
+        
+    }
+    
+    private void draw() {
+        
+    }
+    
+    private void drawToScreen() {
+        
+    }
 
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        init();
+        while(running) {
+            update();
+            draw();
+            drawToScreen();
+        }
     }
 
     @Override

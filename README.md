@@ -1,2 +1,4 @@
 # Tasohyppelypeli
-Nimi ja muut detailit vielä mietinnässä
+Yksinkertainen tasohyppelypeli, jossa pyritään liikuttamaan hahmo kentän läpi.
+
+[aiheen kuvaus](Dokumentaatio/aiheenKuvausJaRakenne.md)

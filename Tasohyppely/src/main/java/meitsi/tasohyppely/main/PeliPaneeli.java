@@ -18,12 +18,12 @@ public class PeliPaneeli extends JPanel implements Runnable, KeyListener {
 
     private BufferedImage kuva;
     private Graphics2D g;
-    
+
     private PelitilaManager pm;
 
     public PeliPaneeli() {
         super();
-        setPreferredSize(new Dimension(WIDTH+960, HEIGHT+480));
+        setPreferredSize(new Dimension(WIDTH + 960, HEIGHT + 480));
         setFocusable(true);
         requestFocus();
     }
@@ -44,29 +44,29 @@ public class PeliPaneeli extends JPanel implements Runnable, KeyListener {
         running = true;
         pm = new PelitilaManager();
     }
-    
+
     public void run() {
         init();
-        
+
         long start;
         long elapsed;
         long wait;
-        
+
         while (running) {
-            
+
             start = System.nanoTime();
             update();
             draw();
             drawToScreen();
-            
+
             elapsed = System.nanoTime() - start;
-            
-            wait = targetTime - elapsed/1000000;
-            
+
+            wait = targetTime - elapsed / 1000000;
+
             try {
                 Thread.sleep(wait);
-                
-            } catch(Exception e) {
+
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -82,11 +82,9 @@ public class PeliPaneeli extends JPanel implements Runnable, KeyListener {
 
     private void drawToScreen() {
         Graphics g2 = getGraphics();
-        g2.drawImage(kuva, 0, 0, WIDTH+960, HEIGHT+480, null);
+        g2.drawImage(kuva, 0, 0, WIDTH + 960, HEIGHT + 480, null);
         g2.dispose();
     }
-
-    
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -105,9 +103,9 @@ public class PeliPaneeli extends JPanel implements Runnable, KeyListener {
     public String getResoluutio() {
         return HEIGHT + "x" + WIDTH;
     }
-    
+
     public int getPelitilaManagerTila() {
         return this.pm.getTilaNyt();
-        
+
     }
 }

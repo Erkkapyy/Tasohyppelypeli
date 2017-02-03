@@ -8,40 +8,41 @@ package meitsi.tasohyppely.pelitila;
 import java.util.ArrayList;
 
 public class PelitilaManager {
+
     private int tilaNyt;
     private ArrayList<Pelitila> pelitilat;
-    
+
     public static final int MENUTILA = 0;
     public static final int TASO1TILA = 1;
-    
+
     public PelitilaManager() {
         pelitilat = new ArrayList<Pelitila>();
-        
+
         tilaNyt = MENUTILA;
         pelitilat.add(new MenuTila(this));
     }
-    
+
     public void setTila(int tila) {
         tilaNyt = tila;
         pelitilat.get(tilaNyt).init();
     }
-    
+
     public void update() {
         pelitilat.get(tilaNyt).update();
     }
-    
+
     public void draw(java.awt.Graphics2D g) {
         pelitilat.get(tilaNyt).draw(g);
     }
-    
+
     public void keyPressed(int k) {
         pelitilat.get(tilaNyt).keyPressed(k);
     }
-    
+
     public void keyReleased(int k) {
         pelitilat.get(tilaNyt).keyReleased(k);
     }
-    
+
     public int getTilaNyt() {
         return this.tilaNyt;
     }

@@ -67,10 +67,10 @@ public class MenuTila extends Pelitila {
 
     private void select() {
         if (currentChoice == 0) {
-            //aloita
+            System.out.println("Aloita");
         }
         if (currentChoice == 1) {
-            //asetukset
+            System.out.println("Asetukset");
         }
         if (currentChoice == 2) {
             System.exit(0);

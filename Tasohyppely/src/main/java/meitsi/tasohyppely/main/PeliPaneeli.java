@@ -4,11 +4,13 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.*;
 import javax.swing.JPanel;
+import meitsi.tasohyppely.pelitila.PelitilaManager;
 
 public class PeliPaneeli extends JPanel implements Runnable, KeyListener {
 
-    public static final int HEIGHT = 480;
-    public static final int WIDTH = 640;
+    public static final int HEIGHT = 240;
+    public static final int WIDTH = 320;
+    public static final int SCALE = 2;
 
     private Thread thread;
     private boolean running;
@@ -17,10 +19,12 @@ public class PeliPaneeli extends JPanel implements Runnable, KeyListener {
 
     private BufferedImage kuva;
     private Graphics2D g;
+    
+    private PelitilaManager pm;
 
     public PeliPaneeli() {
         super();
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        setPreferredSize(new Dimension(WIDTH+960, HEIGHT+480));
         setFocusable(true);
         requestFocus();
     }
@@ -31,50 +35,72 @@ public class PeliPaneeli extends JPanel implements Runnable, KeyListener {
         if (thread == null) {
             thread = new Thread(this);
             addKeyListener(this);
+            thread.start();
         }
     }
 
-    public void init() {
+    private void init() {
         kuva = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-        g = (Graphics2D) g;
+        g = (Graphics2D) kuva.getGraphics();
         running = true;
+        pm = new PelitilaManager();
     }
-
-    private void update() {
-
-    }
-
-    private void draw() {
-
-    }
-
-    private void drawToScreen() {
-
-    }
-
-    @Override
+    
     public void run() {
         init();
+        
+        long start;
+        long elapsed;
+        long wait;
+        
         while (running) {
+            
+            start = System.nanoTime();
             update();
             draw();
             drawToScreen();
+            
+            elapsed = System.nanoTime() - start;
+            
+            wait = targetTime - elapsed/1000000;
+            
+            try {
+                Thread.sleep(wait);
+                
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
+    private void update() {
+        pm.update();
+    }
+
+    private void draw() {
+        pm.draw(g);
+    }
+
+    private void drawToScreen() {
+        Graphics g2 = getGraphics();
+        g2.drawImage(kuva, 0, 0, WIDTH+960, HEIGHT+480, null);
+        g2.dispose();
+    }
+
+    
+
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pm.keyPressed(e.getKeyCode());
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pm.keyReleased(e.getKeyCode());
     }
 
     public String getResoluutio() {

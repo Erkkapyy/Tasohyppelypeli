@@ -10,7 +10,6 @@ public class PeliPaneeli extends JPanel implements Runnable, KeyListener {
 
     public static final int HEIGHT = 240;
     public static final int WIDTH = 320;
-    public static final int SCALE = 2;
 
     private Thread thread;
     private boolean running;
@@ -105,5 +104,10 @@ public class PeliPaneeli extends JPanel implements Runnable, KeyListener {
 
     public String getResoluutio() {
         return HEIGHT + "x" + WIDTH;
+    }
+    
+    public int getPelitilaManagerTila() {
+        return this.pm.getTilaNyt();
+        
     }
 }

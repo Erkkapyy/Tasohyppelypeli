@@ -41,4 +41,8 @@ public class PelitilaManager {
     public void keyReleased(int k) {
         pelitilat.get(tilaNyt).keyReleased(k);
     }
+    
+    public int getTilaNyt() {
+        return this.tilaNyt;
+    }
 }

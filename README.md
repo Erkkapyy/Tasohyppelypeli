@@ -9,4 +9,4 @@ Commit messaget saattavat olla melko epäselviä, tuli hieman ongelmia gitin kan
 
 [Checkstyle-raportti] (https://htmlpreview.github.io/?https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/Dokumentaatio/site/checkstyle.html)
 
-[Pit-raportti] (https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/Dokumentaatio/pit/201702032227/index.html)
+[Pit-raportti] (https://htmlpreview.github.io/?https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/Dokumentaatio/pit/201702032227/index.html)

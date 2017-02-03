@@ -8,3 +8,5 @@ Commit messaget saattavat olla melko epäselviä, tuli hieman ongelmia gitin kan
 [tuntikirjanpito](Dokumentaatio/tuntikirjanpito.md)
 
 [Checkstyle-raportti] (https://htmlpreview.github.io/?https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/Dokumentaatio/site/checkstyle.html)
+
+[Pit-raportti] (https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/Dokumentaatio/pit/201702032227/index.html)

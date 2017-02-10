@@ -20,6 +20,7 @@ public class PelitilaManager {
 
         tilaNyt = MENUTILA;
         pelitilat.add(new MenuTila(this));
+        pelitilat.add(new Taso1Tila(this));
     }
 
     public void setTila(int tila) {

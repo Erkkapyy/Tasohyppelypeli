@@ -67,7 +67,7 @@ public class MenuTila extends Pelitila {
 
     private void select() {
         if (currentChoice == 0) {
-            System.out.println("Aloita");
+            pm.setTila(PelitilaManager.TASO1TILA);
         }
         if (currentChoice == 1) {
             System.out.println("Asetukset");

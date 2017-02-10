@@ -41,7 +41,7 @@ public class Tausta {
     }
 
     /**
-     *
+     * Asettaa taustan paikan.
      * @param x
      * @param y
      */

@@ -9,10 +9,11 @@ import java.awt.*;
 import meitsi.tasohyppely.tilemap.*;
 import meitsi.tasohyppely.entity.*;
 
-public class Taso1Tila extends Pelitila{
-    
+public class Taso1Tila extends Pelitila {
+
     private TileMap tileMap;
     private Tausta tausta;
+
     public Taso1Tila(PelitilaManager pm) {
         this.pm = pm;
         init();
@@ -29,7 +30,7 @@ public class Taso1Tila extends Pelitila{
 
     @Override
     public void update() {
-        
+
     }
 
     @Override
@@ -40,16 +41,16 @@ public class Taso1Tila extends Pelitila{
 
     @Override
     public void keyPressed(int k) {
-        
+
     }
 
     @Override
     public void keyReleased(int k) {
-        
+
     }
-    
+
     public TileMap getTileMap() {
         return tileMap;
     }
-    
+
 }

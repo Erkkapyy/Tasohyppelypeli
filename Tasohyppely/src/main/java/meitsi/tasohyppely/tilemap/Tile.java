@@ -12,22 +12,22 @@ import java.awt.image.BufferedImage;
  * @author pyykonee
  */
 public class Tile {
-    
+
     private BufferedImage kuva;
     private int type;
-    
+
     public static final int NORMAL = 0;
     public static final int BLOCKED = 1;
-    
+
     public Tile(BufferedImage kuva, int type) {
         this.kuva = kuva;
         this.type = type;
     }
-    
+
     public BufferedImage getImage() {
         return kuva;
     }
-    
+
     public int getType() {
         return type;
     }

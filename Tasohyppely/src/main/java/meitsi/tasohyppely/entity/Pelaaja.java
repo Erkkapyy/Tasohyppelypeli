@@ -11,25 +11,26 @@ import java.awt.*;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 
-public class Pelaaja extends MapObject{
+public class Pelaaja extends MapObject {
+
     private int hp;
     private int maxhp;
     private boolean dead;
-    private boolean flinching;
+    private boolean isFlinching;
     private long flinchTime;
-    private boolean punching;
+    private boolean isPunching;
     private int punchDamage;
     private int punchRange;
     private ArrayList<BufferedImage[]> sprites;
     private final int[] numFrames = {
-      2, 8, 1, 2, 5  
+        2, 8, 1, 2, 5
     };
-    private static int IDLE = 0;
-    private static int WALKING = 1;
-    private static int JUMPING = 2;
-    private static int FALLING = 3;
-    private static int PUNCHING = 4;
-    
+    private static int idle = 0;
+    private static int walking = 1;
+    private static int jumping = 2;
+    private static int falling = 3;
+    private static int punching = 4;
+
     public Pelaaja(TileMap tm) {
         super(tm);
     }

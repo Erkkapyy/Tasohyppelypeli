@@ -22,23 +22,25 @@ import static org.junit.Assert.*;
  * @author pyykonee
  */
 public class MapObjectTest {
+
     MapObject object;
     PelitilaManager pm;
     Taso1Tila taso1;
-    
+
     @Before
     public void setUp() {
         pm = new PelitilaManager();
         taso1 = new Taso1Tila(pm);
         taso1.init();
-        object = new MapObject(taso1.getTileMap()) {};
+        object = new MapObject(taso1.getTileMap()) {
+        };
     }
-    
+
     @Test
     public void calculateCornersEiErroreita() {
         object.calculateCorners(0, 0);
     }
-    
+
     @Test
     public void checkTileMapCollisionEiErroreita() {
         object.checkTileMapCollision();

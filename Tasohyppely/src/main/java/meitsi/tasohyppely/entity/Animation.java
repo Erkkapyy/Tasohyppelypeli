@@ -10,5 +10,5 @@ package meitsi.tasohyppely.entity;
  * @author pyykonee
  */
 public class Animation {
-    
+
 }

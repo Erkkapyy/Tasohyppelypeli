@@ -11,8 +11,7 @@ import java.awt.image.*;
 import meitsi.tasohyppely.main.PeliPaneeli;
 
 /**
- *
- * @author pyykonee
+ * Taustan piirtämisestä ja sen liikuttamisesta vastaava luokka.
  */
 public class Tausta {
 
@@ -25,6 +24,11 @@ public class Tausta {
 
     private double moveScale;
 
+    /**
+     *
+     * Luokan konstruktori.
+     * @param s Halutun taustan tiedostopolku
+     */
     public Tausta(String s, double ms) {
         try {
             kuva = ImageIO.read(
@@ -36,16 +40,28 @@ public class Tausta {
         }
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public void setPosition(double x, double y) {
         this.x = (x * moveScale) % PeliPaneeli.WIDTH;
         this.y = (y * moveScale) % PeliPaneeli.HEIGHT;
     }
 
+    /**
+     *
+     * Asettaa liikkeen suunnan.
+     */
     public void setVector(double dx, double dy) {
         this.dx = dx;
         this.dy = dy;
     }
 
+    /**
+     * Päivittää koordinaatit.
+     */
     public void update() {
         this.x = (x * moveScale) % PeliPaneeli.WIDTH;
         this.y = (y * moveScale) % PeliPaneeli.HEIGHT;
@@ -53,6 +69,10 @@ public class Tausta {
         y += dy;
     }
 
+    /**
+     *
+     * Piirtää taustan.
+     */
     public void draw(Graphics2D g) {
         g.drawImage(kuva, (int) x, (int) y, null);
         if (x < 0) {

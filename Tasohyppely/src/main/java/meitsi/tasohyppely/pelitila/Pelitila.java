@@ -6,8 +6,7 @@
 package meitsi.tasohyppely.pelitila;
 
 /**
- *
- * @author pyykonee
+ * Abstrakti luokka menua ja pelin eri tasoja varten.
  */
 public abstract class Pelitila {
 

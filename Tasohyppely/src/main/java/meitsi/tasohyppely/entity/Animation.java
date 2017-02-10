@@ -6,8 +6,7 @@
 package meitsi.tasohyppely.entity;
 
 /**
- *
- * @author pyykonee
+ * Luokka animaatioita varten.
  */
 public class Animation {
 

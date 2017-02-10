@@ -8,8 +8,7 @@ package meitsi.tasohyppely.tilemap;
 import java.awt.image.BufferedImage;
 
 /**
- *
- * @author pyykonee
+ * Luokka joka määrittää voiko tietyn Tilen läpi kulkea vai ei.
  */
 public class Tile {
 

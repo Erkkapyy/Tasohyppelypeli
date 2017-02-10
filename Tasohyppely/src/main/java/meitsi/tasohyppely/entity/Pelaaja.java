@@ -11,6 +11,10 @@ import java.awt.*;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 
+/**
+ * Luokka pelaajan liikutettavaa objektia varten.
+ */
+
 public class Pelaaja extends MapObject {
 
     private int hp;
@@ -31,6 +35,10 @@ public class Pelaaja extends MapObject {
     private static int falling = 3;
     private static int punching = 4;
 
+    /**
+     * Luokan konstruktori.
+     * @param tm Parametrinä saatu TileMap
+     */
     public Pelaaja(TileMap tm) {
         super(tm);
     }

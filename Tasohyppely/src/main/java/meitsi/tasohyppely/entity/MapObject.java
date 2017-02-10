@@ -9,6 +9,11 @@ import java.awt.*;
 import meitsi.tasohyppely.main.PeliPaneeli;
 import meitsi.tasohyppely.tilemap.*;
 
+/**
+ * 
+ * Abstrakti luokka objekteille, jotka esiintyvät pelissä ja jotka piirretään näytölle.
+ */
+
 public abstract class MapObject {
 
     protected TileMap tileMap;

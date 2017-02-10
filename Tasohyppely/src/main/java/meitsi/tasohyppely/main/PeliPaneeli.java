@@ -6,6 +6,9 @@ import java.awt.event.*;
 import javax.swing.JPanel;
 import meitsi.tasohyppely.pelitila.PelitilaManager;
 
+/**
+ * Luokka joka luo peli-ikkunan, käynnistää threadin ja kutsuu PelitilaManageria piirtääkseen siihen(piirtokutsu lähetetään yhä edelleen TileMapille ja Taustalle).
+ */
 public class PeliPaneeli extends JPanel implements Runnable, KeyListener {
 
     public static final int HEIGHT = 240;

@@ -11,6 +11,9 @@ import java.io.*;
 import javax.imageio.ImageIO;
 import meitsi.tasohyppely.main.PeliPaneeli;
 
+/**
+ * Luokka joka lataa tason ja halutut objektit, ja vastaa niiden piirtämisestä.
+ */
 public class TileMap {
 
     private double x;

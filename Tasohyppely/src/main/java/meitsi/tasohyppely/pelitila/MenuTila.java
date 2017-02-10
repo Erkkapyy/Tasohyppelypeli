@@ -10,8 +10,7 @@ import java.awt.event.KeyEvent;
 import meitsi.tasohyppely.tilemap.Tausta;
 
 /**
- *
- * @author pyykonee
+ * Pelin alkuvalikon määrittävä luokka.
  */
 public class MenuTila extends Pelitila {
 

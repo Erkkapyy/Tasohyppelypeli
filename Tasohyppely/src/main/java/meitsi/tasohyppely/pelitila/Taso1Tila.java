@@ -9,6 +9,9 @@ import java.awt.*;
 import meitsi.tasohyppely.tilemap.*;
 import meitsi.tasohyppely.entity.*;
 
+/**
+ * Pelin ensimmäinen pelattava taso.
+ */
 public class Taso1Tila extends Pelitila {
 
     private TileMap tileMap;

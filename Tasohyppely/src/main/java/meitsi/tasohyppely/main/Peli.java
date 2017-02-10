@@ -1,7 +1,9 @@
 package meitsi.tasohyppely.main;
 
 import javax.swing.JFrame;
-
+/**
+ * Koko pelin main-luokka.
+ */
 public class Peli {
     
     public static void main(String[] args) {

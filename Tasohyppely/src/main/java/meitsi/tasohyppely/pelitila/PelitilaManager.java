@@ -7,6 +7,9 @@ package meitsi.tasohyppely.pelitila;
 
 import java.util.ArrayList;
 
+/**
+ * Eri pelitilojen hallintaa varten luotu luokka.
+ */
 public class PelitilaManager {
 
     private int tilaNyt;

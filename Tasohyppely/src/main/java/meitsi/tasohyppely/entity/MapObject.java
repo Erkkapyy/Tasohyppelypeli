@@ -68,8 +68,6 @@ public abstract class MapObject {
         return new Rectangle((int)x-cwidth, (int)y-cheight, cwidth, cheight);
     }
     
-    
-    
     public void calculateCorners(double x, double y) {
         int leftTile = (int)(x - cwidth / 2) / tileSize;
         int rightTile = (int)(x + cwidth / 2 - 1) / tileSize;
@@ -89,7 +87,6 @@ public abstract class MapObject {
         bottomRight = br == Tile.BLOCKED;
 
     }
-
     
     public void checkTileMapCollision() {
         currCol = (int)x/tileSize;

@@ -48,4 +48,8 @@ public class Taso1Tila extends Pelitila{
         
     }
     
+    public TileMap getTileMap() {
+        return tileMap;
+    }
+    
 }

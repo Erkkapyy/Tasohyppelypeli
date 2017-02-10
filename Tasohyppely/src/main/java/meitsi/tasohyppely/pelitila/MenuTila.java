@@ -24,7 +24,6 @@ public class MenuTila extends Pelitila {
     private Color titleColor;
     private Font titleFont;
     private Font font;
-
     public MenuTila(PelitilaManager pm) {
         this.pm = pm;
 
@@ -100,5 +99,11 @@ public class MenuTila extends Pelitila {
     @Override
     public void keyReleased(int k) {
     }
+    
+    public void setCurrentChoice(int choice) {
+        currentChoice = choice;
+    }
+    
+
 
 }

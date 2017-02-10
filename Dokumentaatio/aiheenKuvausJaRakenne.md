@@ -9,6 +9,6 @@
 - Hahmolla hyökkääminen
 
 
-**Määrittelyvaiheen luokkakaavio**:
+**Luokkakaavio**:
 
-![Luokkakaavio](https://yuml.me/ff532cb5)
+![Luokkakaavio](https://yuml.me/4ae4dd4b)

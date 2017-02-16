@@ -6,6 +6,7 @@
 package meitsi.tasohyppely.pelitila;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import meitsi.tasohyppely.tilemap.*;
 import meitsi.tasohyppely.entity.*;
 
@@ -16,6 +17,7 @@ public class Taso1Tila extends Pelitila {
 
     private TileMap tileMap;
     private Tausta tausta;
+    private Pelaaja pelaaja;
 
     public Taso1Tila(PelitilaManager pm) {
         this.pm = pm;
@@ -29,26 +31,61 @@ public class Taso1Tila extends Pelitila {
         tileMap.loadMap("/Maps/level1-1.map");
         tileMap.setPosition(0, 0);
         tausta = new Tausta("/Backgrounds/grassbg1.gif", 0.1);
+        pelaaja = new Pelaaja(tileMap);
+        pelaaja.setPosition(100, 100);
     }
 
     @Override
     public void update() {
-
+        pelaaja.update();
     }
 
     @Override
     public void draw(Graphics2D g) {
         tausta.draw(g);
         tileMap.draw(g);
+        pelaaja.draw(g);
     }
 
     @Override
     public void keyPressed(int k) {
-
+        if(k==KeyEvent.VK_LEFT) {
+            pelaaja.setLeft(true);
+        }
+        if(k==KeyEvent.VK_RIGHT) {
+            pelaaja.setRight(true);
+        }
+        if(k==KeyEvent.VK_UP) {
+            pelaaja.setUp(true);
+        }
+        if(k==KeyEvent.VK_DOWN) {
+            pelaaja.setDown(true);
+        }
+        if(k==KeyEvent.VK_SPACE) {
+            pelaaja.setJumping(true);
+        }
+        if(k==KeyEvent.VK_Z) {
+            pelaaja.setPunching();
+        }
     }
 
     @Override
     public void keyReleased(int k) {
+        if(k==KeyEvent.VK_LEFT) {
+            pelaaja.setLeft(false);
+        }
+        if(k==KeyEvent.VK_RIGHT) {
+            pelaaja.setRight(false);
+        }
+        if(k==KeyEvent.VK_UP) {
+            pelaaja.setUp(false);
+        }
+        if(k==KeyEvent.VK_DOWN) {
+            pelaaja.setDown(false);
+        }
+        if(k==KeyEvent.VK_SPACE) {
+            pelaaja.setJumping(false);
+        }
 
     }
 

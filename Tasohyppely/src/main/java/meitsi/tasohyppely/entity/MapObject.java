@@ -46,8 +46,8 @@ public abstract class MapObject {
     protected boolean right;
     protected boolean up;
     protected boolean down;
-    protected boolean jumping;
-    protected boolean falling;
+    protected boolean isJumping;
+    protected boolean isFalling;
     protected double moveSpeed;
     protected double maxSpeed;
     protected double stopSpeed;
@@ -112,7 +112,7 @@ public abstract class MapObject {
         if (dy > 0) {
             if (bottomLeft || bottomRight) {
                 dy = 0;
-                falling = false;
+                isFalling = false;
                 ytemp = (currRow + 1) * tileSize - cheight / 2;
             } else {
                 ytemp += dy;
@@ -133,14 +133,14 @@ public abstract class MapObject {
                 dx = 0;
                 xtemp = (currCol + 1) * tileSize - cwidth / 2;
             } else {
-                ytemp += dy;
+                xtemp += dx;
             }
         }
 
-        if (!falling) {
+        if (!isFalling) {
             calculateCorners(x, ydest + 1);
             if (!bottomLeft && !bottomRight) {
-                falling = true;
+                isFalling = true;
             }
         }
 
@@ -202,7 +202,7 @@ public abstract class MapObject {
     }
 
     public void setJumping(boolean b) {
-        jumping = b;
+        isJumping = b;
     }
 
     public boolean notOnScreen() {

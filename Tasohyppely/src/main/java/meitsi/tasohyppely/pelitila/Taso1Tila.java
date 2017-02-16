@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import meitsi.tasohyppely.tilemap.*;
 import meitsi.tasohyppely.entity.*;
+import meitsi.tasohyppely.main.PeliPaneeli;
 
 /**
  * Pelin ensimmäinen pelattava taso.
@@ -38,6 +39,7 @@ public class Taso1Tila extends Pelitila {
     @Override
     public void update() {
         pelaaja.update();
+        tileMap.setPosition(PeliPaneeli.WIDTH/2-pelaaja.getx(), PeliPaneeli.HEIGHT/2-pelaaja.gety());
     }
 
     @Override

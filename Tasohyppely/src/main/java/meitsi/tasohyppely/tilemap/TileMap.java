@@ -37,13 +37,21 @@ public class TileMap {
     private int numRowsToDraw;
     private int numColsToDraw;
 
+    /**
+    * Konstruktori.
+    * @param tileSize määrittää tiilien koon
+    */
     public TileMap(int tileSize) {
         this.tileSize = tileSize;
         numRowsToDraw = PeliPaneeli.HEIGHT + 480 / tileSize + 2;
-        numColsToDraw = PeliPaneeli.WIDTH + 960/ tileSize + 2;
+        numColsToDraw = PeliPaneeli.WIDTH + 960 / tileSize + 2;
         tween = 0.07;
     }
 
+    /**
+    * Lataa parametrinä annetusta tiedostosta tilet.
+    * @param s tiedostopolku
+    */
     public void loadTiles(String s) {
 
         try {
@@ -61,7 +69,11 @@ public class TileMap {
             e.printStackTrace();
         }
     }
-
+    
+    /**
+    * Lataa parametrinä annetusta tiedostosta tason.
+    * @param s tiedostopolku
+    */
     public void loadMap(String s) {
 
         try {
@@ -135,6 +147,9 @@ public class TileMap {
         colOffset = (int) -this.y / tileSize;
     }
 
+    /**
+    *  Varmistaa ettei mennä piirrettävän alueen ulkopuolelle.
+    */
     private void fixBounds() {
         if (x < xmin) {
             x = xmin;
@@ -150,6 +165,10 @@ public class TileMap {
         }
     }
 
+    /**
+    * Piirtää tilet. 
+    * @param g piirtomuuttuja
+    */
     public void draw(Graphics2D g) {
         for (int row = rowOffset; row < rowOffset + numRowsToDraw; row++) {
             if (row >= numRows) {
@@ -165,7 +184,7 @@ public class TileMap {
                 int rc = map[row][col];
                 int r = rc / numTilesAcross;
                 int c = rc % numTilesAcross;
-                g.drawImage(tiles[r][c].getImage(), (int)x + col * tileSize, (int)y + row * tileSize, null);
+                g.drawImage(tiles[r][c].getImage(), (int) x + col * tileSize, (int) y + row * tileSize, null);
             }
         }
     }

@@ -28,6 +28,7 @@ public class Tausta {
      *
      * Luokan konstruktori.
      * @param s Halutun taustan tiedostopolku
+     * @param ms Halutun taustan asettelua varten tarvittava muuttuja
      */
     public Tausta(String s, double ms) {
         try {
@@ -42,8 +43,8 @@ public class Tausta {
 
     /**
      * Asettaa taustan paikan.
-     * @param x
-     * @param y
+     * @param x x koordinaatti
+     * @param y y koordinaatti
      */
     public void setPosition(double x, double y) {
         this.x = (x * moveScale) % PeliPaneeli.WIDTH;
@@ -53,6 +54,8 @@ public class Tausta {
     /**
      *
      * Asettaa liikkeen suunnan.
+     * @param dx x koordinaatin suunta
+     * @param dy y koordinaatin suunta
      */
     public void setVector(double dx, double dy) {
         this.dx = dx;
@@ -72,6 +75,7 @@ public class Tausta {
     /**
      *
      * Piirtää taustan.
+     * @param g muuttuja jonka avulla piirretään
      */
     public void draw(Graphics2D g) {
         g.drawImage(kuva, (int) x, (int) y, null);

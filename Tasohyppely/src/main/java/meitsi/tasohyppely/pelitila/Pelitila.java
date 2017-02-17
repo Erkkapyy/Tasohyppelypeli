@@ -11,14 +11,32 @@ package meitsi.tasohyppely.pelitila;
 public abstract class Pelitila {
 
     protected PelitilaManager pm;
-
+    
+    /**
+     * Käynnistää pelitilan.
+     */
     public abstract void init();
 
+    /**
+     * Päivittää pelitilan.
+     */
     public abstract void update();
 
+    /**
+     * Piirtää pelitilan.
+     * @param g piirtomuuttuja
+     */
     public abstract void draw(java.awt.Graphics2D g);
 
+    /**
+     * Kertoo mitä näppäintä on painettu.
+     * @param k keyPressed muuttuja
+     */
     public abstract void keyPressed(int k);
 
+    /**
+     * Kertoo mikä näppäin on vapautettu.
+     * @param k keyReleased muuttuja
+     */
     public abstract void keyReleased(int k);
 }

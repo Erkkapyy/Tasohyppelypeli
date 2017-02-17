@@ -23,6 +23,11 @@ public class MenuTila extends Pelitila {
     private Color titleColor;
     private Font titleFont;
     private Font font;
+    
+    /**
+     * Konstruktori.
+     * @param pm PelitilaManager johon Menutila kuuluu
+     */
     public MenuTila(PelitilaManager pm) {
         this.pm = pm;
 

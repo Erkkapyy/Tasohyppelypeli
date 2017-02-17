@@ -10,10 +10,10 @@ import meitsi.tasohyppely.main.PeliPaneeli;
 import meitsi.tasohyppely.tilemap.*;
 
 /**
- * 
- * Abstrakti luokka objekteille, jotka esiintyvät pelissä ja jotka piirretään näytölle.
+ *
+ * Abstrakti luokka objekteille, jotka esiintyvät pelissä ja jotka piirretään
+ * näytölle.
  */
-
 public abstract class MapObject {
 
     protected TileMap tileMap;
@@ -56,21 +56,38 @@ public abstract class MapObject {
     protected double jumpStart;
     protected double stopJumpSpeed;
 
+    /**
+     * Konstruktori.
+     * @param tm TileMap johon objekti viittaa
+     */
     public MapObject(TileMap tm) {
         tileMap = tm;
         tileSize = tm.getTileSize();
     }
-
+    /**
+     * Kertoo leikkaavatko annettun MapObjectin neliö ja toinen neliö.
+     * @param o annettu MapObject
+     * @return palauttaa booleanin siitä
+     */
     public boolean intersects(MapObject o) {
         Rectangle r1 = getRectangle();
         Rectangle r2 = o.getRectangle();
         return r1.intersects(r2);
     }
 
+    /**
+     * Antaa MapObjectin koon neliönä.
+     * @return palauttaa neliön
+     */
     public Rectangle getRectangle() {
         return new Rectangle((int) x - cwidth, (int) y - cheight, cwidth, cheight);
     }
 
+    /**
+     * Laskee MapObjectin neljä eri kulmaa, jotta sen törmääminen voidaan laskea järkevästi.
+     * @param x annettu x koordinaatti
+     * @param y annettu y koordinaatti
+     */
     public void calculateCorners(double x, double y) {
         int leftTile = (int) (x - cwidth / 2) / tileSize;
         int rightTile = (int) (x + cwidth / 2 - 1) / tileSize;
@@ -91,9 +108,12 @@ public abstract class MapObject {
 
     }
 
+    /**
+     * Tarkistaa törmääkö objekti mihinkään.
+     */
     public void checkTileMapCollision() {
-        currCol = (int)x / tileSize;
-        currRow = (int)y / tileSize;
+        currCol = (int) x / tileSize;
+        currRow = (int) y / tileSize;
         xdest = x + dx;
         ydest = y + dy;
 
@@ -106,9 +126,9 @@ public abstract class MapObject {
                 dy = 0;
                 ytemp = currRow * tileSize + cheight / 2;
             } else {
-            ytemp += dy;
+                ytemp += dy;
             }
-        } 
+        }
         if (dy > 0) {
             if (bottomLeft || bottomRight) {
                 dy = 0;
@@ -125,9 +145,9 @@ public abstract class MapObject {
                 dx = 0;
                 xtemp = currCol * tileSize + cwidth / 2;
             } else {
-            xtemp += dx;
+                xtemp += dx;
             }
-        } 
+        }
         if (dx > 0) {
             if (topRight || bottomRight) {
                 dx = 0;
@@ -205,6 +225,10 @@ public abstract class MapObject {
         isJumping = b;
     }
 
+    /**
+     * Kertoo onko MapObject ruudulla.
+     * @return palauttaa booleanin siitä
+     */
     public boolean notOnScreen() {
         return x + xmap + width < 0 || x + xmap - width > PeliPaneeli.WIDTH || y + ymap + height < 0 || y + ymap - height > PeliPaneeli.HEIGHT;
     }

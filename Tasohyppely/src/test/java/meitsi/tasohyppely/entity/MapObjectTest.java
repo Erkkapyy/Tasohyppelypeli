@@ -5,6 +5,7 @@
  */
 package meitsi.tasohyppely.entity;
 
+import java.awt.Graphics2D;
 import javax.swing.JFrame;
 import meitsi.tasohyppely.main.PeliPaneeli;
 import meitsi.tasohyppely.pelitila.PelitilaManager;
@@ -26,9 +27,12 @@ public class MapObjectTest {
     MapObject object;
     PelitilaManager pm;
     Taso1Tila taso1;
+    TileMap tileMap;
+    Graphics2D g;
 
     @Before
     public void setUp() {
+        tileMap = new TileMap(30);
         pm = new PelitilaManager();
         taso1 = new Taso1Tila(pm);
         taso1.init();
@@ -45,4 +49,12 @@ public class MapObjectTest {
     public void checkTileMapCollisionEiErroreita() {
         object.checkTileMapCollision();
     }
+    
+    @Test
+    public void pelaajaUpdateEiErroreita() {
+        Pelaaja pelaaja = new Pelaaja(tileMap);
+        pelaaja.update();
+    }
+    
+    
 }

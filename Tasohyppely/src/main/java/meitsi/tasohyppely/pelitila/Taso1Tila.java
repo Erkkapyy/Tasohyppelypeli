@@ -20,6 +20,10 @@ public class Taso1Tila extends Pelitila {
     private Tausta tausta;
     private Pelaaja pelaaja;
 
+    /**
+     * Konstruktori.
+     * @param pm PelitilaManager johon taso kuuluu
+     */
     public Taso1Tila(PelitilaManager pm) {
         this.pm = pm;
         init();
@@ -40,7 +44,7 @@ public class Taso1Tila extends Pelitila {
     @Override
     public void update() {
         pelaaja.update();
-        tileMap.setPosition(PeliPaneeli.WIDTH/2-pelaaja.getx(), PeliPaneeli.HEIGHT/2-pelaaja.gety());
+        tileMap.setPosition(PeliPaneeli.WIDTH / 2 - pelaaja.getx(), PeliPaneeli.HEIGHT / 2 - pelaaja.gety());
     }
 
     @Override
@@ -52,41 +56,41 @@ public class Taso1Tila extends Pelitila {
 
     @Override
     public void keyPressed(int k) {
-        if(k==KeyEvent.VK_LEFT) {
+        if (k == KeyEvent.VK_LEFT) {
             pelaaja.setLeft(true);
         }
-        if(k==KeyEvent.VK_RIGHT) {
+        if (k == KeyEvent.VK_RIGHT) {
             pelaaja.setRight(true);
         }
-        if(k==KeyEvent.VK_UP) {
+        if (k == KeyEvent.VK_UP) {
             pelaaja.setUp(true);
         }
-        if(k==KeyEvent.VK_DOWN) {
+        if (k == KeyEvent.VK_DOWN) {
             pelaaja.setDown(true);
         }
-        if(k==KeyEvent.VK_SPACE) {
+        if (k == KeyEvent.VK_SPACE) {
             pelaaja.setJumping(true);
         }
-        if(k==KeyEvent.VK_Z) {
+        if (k == KeyEvent.VK_Z) {
             pelaaja.setPunching();
         }
     }
 
     @Override
     public void keyReleased(int k) {
-        if(k==KeyEvent.VK_LEFT) {
+        if (k == KeyEvent.VK_LEFT) {
             pelaaja.setLeft(false);
         }
-        if(k==KeyEvent.VK_RIGHT) {
+        if (k == KeyEvent.VK_RIGHT) {
             pelaaja.setRight(false);
         }
-        if(k==KeyEvent.VK_UP) {
+        if (k == KeyEvent.VK_UP) {
             pelaaja.setUp(false);
         }
-        if(k==KeyEvent.VK_DOWN) {
+        if (k == KeyEvent.VK_DOWN) {
             pelaaja.setDown(false);
         }
-        if(k==KeyEvent.VK_SPACE) {
+        if (k == KeyEvent.VK_SPACE) {
             pelaaja.setJumping(false);
         }
 

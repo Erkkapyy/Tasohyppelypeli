@@ -18,6 +18,9 @@ public class PelitilaManager {
     public static final int MENUTILA = 0;
     public static final int TASO1TILA = 1;
 
+    /**
+     * Konstruktori.
+     */
     public PelitilaManager() {
         pelitilat = new ArrayList<Pelitila>();
 
@@ -31,18 +34,33 @@ public class PelitilaManager {
         pelitilat.get(tilaNyt).init();
     }
 
+    /**
+     * Kutsuu tämänhetkistä pelitilaa päivittämään itsensä.
+     */
     public void update() {
         pelitilat.get(tilaNyt).update();
     }
 
+    /**
+     * Kutsuu tämänhetkistä pelitilaa piirtämään itsensä.
+     * @param g piirtomuuttuja
+     */
     public void draw(java.awt.Graphics2D g) {
         pelitilat.get(tilaNyt).draw(g);
     }
 
+    /**
+     * Kutsuu tämänhetkistä pelitilaa tarkistamaan mikä näppäin on painettu.
+     * @param k keyPressed muuttuja
+     */
     public void keyPressed(int k) {
         pelitilat.get(tilaNyt).keyPressed(k);
     }
 
+    /**
+     * Kutsuu tämänhetkistä pelitilaa tarkistamaan mikä näppäin on vapautettu.
+     * @param k keyReleased muuttuja
+     */
     public void keyReleased(int k) {
         pelitilat.get(tilaNyt).keyReleased(k);
     }

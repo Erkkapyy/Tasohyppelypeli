@@ -18,6 +18,11 @@ public class Tile {
     public static final int NORMAL = 0;
     public static final int BLOCKED = 1;
 
+    /**
+    * Konstruktori. 
+    * @param kuva kuva jota käytetään
+    * @param type kertoo tiilin tyypin
+    */
     public Tile(BufferedImage kuva, int type) {
         this.kuva = kuva;
         this.type = type;

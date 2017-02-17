@@ -66,7 +66,7 @@ public class Pelaaja extends MapObject {
                     if(i != 4) {
                     bi[j] = spritesheet.getSubimage(j*width, i*height, width, height);
                     } else {
-                        bi[j] = spritesheet.getSubimage(j*width*2, i*height, width, height);
+                        bi[j] = spritesheet.getSubimage(j*width*2, i*height, width * 2, height);
                     }
                 }
                 sprites.add(bi);
@@ -139,6 +139,11 @@ public class Pelaaja extends MapObject {
         getNextPosition();
         checkTileMapCollision();
         setPosition(xtemp, ytemp);
+        if(currentAction == punching) {
+            if(animation.hasPlayedOnce()) {
+                isPunching = false;
+            }
+        }
         if(isPunching) {
             if(currentAction != punching) {
                 currentAction = punching;

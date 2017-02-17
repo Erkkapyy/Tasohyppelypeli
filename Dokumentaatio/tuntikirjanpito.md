@@ -6,3 +6,4 @@ Päivä | Tunnit | Kuvaus
 03.02.2017 | 6h | Käyttöliittymän parantelua, resurssien lisääminen, taustan ja sen logiikan lisäys, MenuTilan toteutus
 10.02.2017 | 7h | MapObject-, TileMap-, Taso1Tila- ja Tile luokkien toteutus, Pelaaja luokan toteuttamisen aloitus, dokumentaation luontia, testien luontia
 16.02.2017 | 3h | Pelaaja- ja Animation luokkien toteutus
+17.02.2017 | 5h | Paljon debuggausta, omien spritesheettien luonnin yrittämistä, dokumentointia

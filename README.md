@@ -7,6 +7,6 @@ Tämänhetkiset spritet ovat vain ohjelman kehittämistä varten, vaihdan ne muu
 
 [tuntikirjanpito](Dokumentaatio/tuntikirjanpito.md)
 
-[Checkstyle-raportti] (https://htmlpreview.github.io/?https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/Dokumentaatio/site/checkstyle.html)
+[Checkstyle-raportti] (https://htmlpreview.github.io/?https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/Dokumentaatio/site/checkstyle.html) (Kaikki javadoc virheet ovat gettereistä/settereistä)
 
 [Pit-raportti] (https://htmlpreview.github.io/?https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/Dokumentaatio/pit/201702172258/index.html)

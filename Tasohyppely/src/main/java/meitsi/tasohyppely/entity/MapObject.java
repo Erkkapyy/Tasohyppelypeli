@@ -92,8 +92,8 @@ public abstract class MapObject {
     }
 
     public void checkTileMapCollision() {
-        currCol = (int) x / tileSize;
-        currRow = (int) y / tileSize;
+        currCol = (int)x / tileSize;
+        currRow = (int)y / tileSize;
         xdest = x + dx;
         ydest = y + dy;
 
@@ -105,10 +105,10 @@ public abstract class MapObject {
             if (topLeft || topRight) {
                 dy = 0;
                 ytemp = currRow * tileSize + cheight / 2;
-            }
-        } else {
+            } else {
             ytemp += dy;
-        }
+            }
+        } 
         if (dy > 0) {
             if (bottomLeft || bottomRight) {
                 dy = 0;
@@ -124,10 +124,10 @@ public abstract class MapObject {
             if (topLeft || bottomLeft) {
                 dx = 0;
                 xtemp = currCol * tileSize + cwidth / 2;
-            }
-        } else {
+            } else {
             xtemp += dx;
-        }
+            }
+        } 
         if (dx > 0) {
             if (topRight || bottomRight) {
                 dx = 0;

@@ -27,7 +27,7 @@ public class Pelaaja extends MapObject {
     private int punchRange;
     private ArrayList<BufferedImage[]> sprites;
     private final int[] numFrames = {
-        2, 8, 1, 2, 5
+        2, 8, 1, 2, 4
     };
     private static int idle = 0;
     private static int walking = 1;
@@ -64,9 +64,9 @@ public class Pelaaja extends MapObject {
                 BufferedImage[] bi = new BufferedImage[numFrames[i]];
                 for(int j=0; j<numFrames[i]; j++) {
                     if(i != 4) {
-                    bi[j] = spritesheet.getSubimage(j*width, j*height, width, height);
+                    bi[j] = spritesheet.getSubimage(j*width, i*height, width, height);
                     } else {
-                        bi[j] = spritesheet.getSubimage(j*width*2, j*height, width, height);
+                        bi[j] = spritesheet.getSubimage(j*width*2, i*height, width, height);
                     }
                 }
                 sprites.add(bi);

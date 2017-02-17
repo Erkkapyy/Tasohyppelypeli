@@ -1,5 +1,5 @@
 ##Aihemäärittely
-**Aihe**: Tasohyppely. Toteutetaan peli, jossa käyttäjä ohjaa jonkinlaista hahmoa läpi kentän/kenttien, joissa esiintyy vihollisia tai erilaisia esteitä. Hahmo saattaa pystyä ampumaan/lyömään tai jotenkin muuten tuhoamaan mahdollisia vihollisia.
+**Aihe**: Tasohyppely. Toteutetaan peli, jossa käyttäjä ohjaa  hahmoa läpi kenttien, joissa esiintyy vihollisia tai erilaisia esteitä. Hahmo pystyy lyömällä tuhoamaan vihollisia.
 
 **Käyttäjät**: Pelaaja
 
@@ -12,3 +12,9 @@
 **Luokkakaavio**:
 
 ![Luokkakaavio](https://yuml.me/4ae4dd4b)
+
+**Sekvenssikaaviot**:
+
+![Aloita peli](http://i.imgur.com/Eh6oIF4.png)
+![Lopeta peli](http://i.imgur.com/7xIzI6R.png)
+

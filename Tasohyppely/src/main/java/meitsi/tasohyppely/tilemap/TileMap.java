@@ -39,8 +39,8 @@ public class TileMap {
 
     public TileMap(int tileSize) {
         this.tileSize = tileSize;
-        numRowsToDraw = PeliPaneeli.HEIGHT / tileSize + 2;
-        numColsToDraw = PeliPaneeli.WIDTH / tileSize + 2;
+        numRowsToDraw = PeliPaneeli.HEIGHT + 480 / tileSize + 2;
+        numColsToDraw = PeliPaneeli.WIDTH + 960/ tileSize + 2;
         tween = 0.07;
     }
 
@@ -165,9 +165,13 @@ public class TileMap {
                 int rc = map[row][col];
                 int r = rc / numTilesAcross;
                 int c = rc % numTilesAcross;
-                g.drawImage(tiles[r][c].getImage(), (int) x + col * tileSize, (int) y + row * tileSize, null);
+                g.drawImage(tiles[r][c].getImage(), (int)x + col * tileSize, (int)y + row * tileSize, null);
             }
         }
+    }
+
+    public void setTween(double d) {
+        tween = d;
     }
 
 }

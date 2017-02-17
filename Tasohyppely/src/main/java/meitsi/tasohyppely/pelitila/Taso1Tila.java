@@ -31,6 +31,7 @@ public class Taso1Tila extends Pelitila {
         tileMap.loadTiles("/Tilesets/grasstileset.gif");
         tileMap.loadMap("/Maps/level1-1.map");
         tileMap.setPosition(0, 0);
+        tileMap.setTween(1);
         tausta = new Tausta("/Backgrounds/grassbg1.gif", 0.1);
         pelaaja = new Pelaaja(tileMap);
         pelaaja.setPosition(100, 100);

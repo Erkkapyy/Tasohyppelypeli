@@ -34,7 +34,7 @@ public class MenuTila extends Pelitila {
         try {
             tausta = new Tausta("/Backgrounds/menubg.gif", 1);
             tausta.setVector(-0.1, 0);
-            titleColor = new Color(128, 0, 0);
+            titleColor = new Color(65, 0, 135);
             titleFont = new Font("Century Gothic", Font.PLAIN, 28);
             font = new Font("Arial", Font.PLAIN, 12);
         } catch (Exception e) {

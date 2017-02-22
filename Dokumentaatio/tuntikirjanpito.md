@@ -7,3 +7,4 @@ Päivä | Tunnit | Kuvaus
 10.02.2017 | 7h | MapObject-, TileMap-, Taso1Tila- ja Tile luokkien toteutus, Pelaaja luokan toteuttamisen aloitus, dokumentaation luontia, testien luontia
 16.02.2017 | 3h | Pelaaja- ja Animation luokkien toteutus
 17.02.2017 | 5h | Paljon debuggausta, omien spritesheettien luonnin yrittämistä, dokumentointia
+22.02.2017 | 4h | Resurssien muokkailua ja pelin hiontaa demotilaisuutta varten

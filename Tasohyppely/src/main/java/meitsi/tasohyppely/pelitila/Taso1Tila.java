@@ -32,7 +32,7 @@ public class Taso1Tila extends Pelitila {
     @Override
     public void init() {
         tileMap = new TileMap(30);
-        tileMap.loadTiles("/Tilesets/grasstileset.gif");
+        tileMap.loadTiles("/Tilesets/grasstileset2.gif");
         tileMap.loadMap("/Maps/level1-1.map");
         tileMap.setPosition(0, 0);
         tileMap.setTween(1);

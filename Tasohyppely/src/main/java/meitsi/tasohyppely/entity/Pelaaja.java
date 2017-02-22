@@ -26,13 +26,13 @@ public class Pelaaja extends MapObject {
     private int punchRange;
     private ArrayList<BufferedImage[]> sprites;
     private final int[] numFrames = {
-        2, 8, 1, 2, 4
+        1, 8, 5, 3, 3
     };
     private static int idle = 0;
     private static int walking = 1;
-    private static int jumping = 2;
-    private static int falling = 3;
-    private static int punching = 4;
+    private static int punching = 2;
+    private static int jumping = 3;
+    private static int falling = 4;
 
     /**
      * Luokan konstruktori.
@@ -42,8 +42,8 @@ public class Pelaaja extends MapObject {
     public Pelaaja(TileMap tm) {
         super(tm);
 
-        width = 30;
-        height = 30;
+        width = 40;
+        height = 40;
         cwidth = 20;
         cheight = 20;
         moveSpeed = 0.3;
@@ -58,12 +58,12 @@ public class Pelaaja extends MapObject {
         punchDamage = 8;
         punchRange = 40;
         try {
-            BufferedImage spritesheet = ImageIO.read(getClass().getResourceAsStream("/Sprites/Player/playersprites.gif"));
+            BufferedImage spritesheet = ImageIO.read(getClass().getResourceAsStream("/Sprites/Player/playersprites2.gif"));
             sprites = new ArrayList<BufferedImage[]>();
             for (int i = 0; i < 5; i++) {
                 BufferedImage[] bi = new BufferedImage[numFrames[i]];
                 for (int j = 0; j < numFrames[i]; j++) {
-                    if (i != 4) {
+                    if (i != 2) {
                         bi[j] = spritesheet.getSubimage(j * width, i * height, width, height);
                     } else {
                         bi[j] = spritesheet.getSubimage(j * width * 2, i * height, width * 2, height);
@@ -152,35 +152,35 @@ public class Pelaaja extends MapObject {
                 currentAction = punching;
                 animation.setFrames(sprites.get(punching));
                 animation.setDelay(50);
-                width = 60;
+                width = 80;
             }
         } else if (dy > 0) {
             if (currentAction != falling) {
                 currentAction = falling;
                 animation.setFrames(sprites.get(falling));
                 animation.setDelay(100);
-                width = 30;
+                width = 40;
             }
         } else if (dy < 0) {
             if (currentAction != jumping) {
                 currentAction = jumping;
                 animation.setFrames(sprites.get(jumping));
                 animation.setDelay(-1);
-                width = 30;
+                width = 40;
             }
         } else if (left || right) {
             if (currentAction != walking) {
                 currentAction = walking;
                 animation.setFrames(sprites.get(walking));
                 animation.setDelay(40);
-                width = 30;
+                width = 40;
             }
         } else {
             if (currentAction != idle) {
                 currentAction = idle;
                 animation.setFrames(sprites.get(idle));
                 animation.setDelay(400);
-                width = 30;
+                width = 40;
             }
         }
         animation.update();

@@ -68,7 +68,7 @@ public class Taso1Tila extends Pelitila {
         if (k == KeyEvent.VK_DOWN) {
             pelaaja.setDown(true);
         }
-        if (k == KeyEvent.VK_SPACE) {
+        if (k == KeyEvent.VK_X) {
             pelaaja.setJumping(true);
         }
         if (k == KeyEvent.VK_Z) {
@@ -90,7 +90,7 @@ public class Taso1Tila extends Pelitila {
         if (k == KeyEvent.VK_DOWN) {
             pelaaja.setDown(false);
         }
-        if (k == KeyEvent.VK_SPACE) {
+        if (k == KeyEvent.VK_X) {
             pelaaja.setJumping(false);
         }
 

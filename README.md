@@ -1,7 +1,6 @@
 # Tasohyppelypeli
 Yksinkertainen tasohyppelypeli, jossa pyritään liikuttamaan hahmo kentän läpi.
 
-Tämänhetkiset spritet ovat vain ohjelman kehittämistä varten, vaihdan ne muuksi projektin loppupuolella.
 ## Dokumentaatio
 [aiheen kuvaus](Dokumentaatio/aiheenKuvausJaRakenne.md)
 

@@ -7,8 +7,10 @@ package meitsi.tasohyppely.pelitila;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import meitsi.tasohyppely.tilemap.*;
 import meitsi.tasohyppely.entity.*;
+import meitsi.tasohyppely.entity.viholliset.*;
 import meitsi.tasohyppely.main.PeliPaneeli;
 
 /**
@@ -19,6 +21,7 @@ public class Taso1Tila extends Pelitila {
     private TileMap tileMap;
     private Tausta tausta;
     private Pelaaja pelaaja;
+    private ArrayList<Vihollinen> viholliset;
 
     /**
      * Konstruktori.
@@ -39,12 +42,20 @@ public class Taso1Tila extends Pelitila {
         tausta = new Tausta("/Backgrounds/waterfallbg2.gif", 0.1);
         pelaaja = new Pelaaja(tileMap);
         pelaaja.setPosition(100, 100);
+        viholliset = new ArrayList<Vihollinen>();
+        Vihu1 vihu1;
+        vihu1 = new Vihu1(tileMap);
+        vihu1.setPosition(100, 100);
+        viholliset.add(vihu1);
     }
 
     @Override
     public void update() {
         pelaaja.update();
         tileMap.setPosition(PeliPaneeli.WIDTH / 2 - pelaaja.getx(), PeliPaneeli.HEIGHT / 2 - pelaaja.gety());
+        for(int i=0; i<viholliset.size(); i++) {
+            viholliset.get(i).update();
+        }
     }
 
     @Override
@@ -52,6 +63,9 @@ public class Taso1Tila extends Pelitila {
         tausta.draw(g);
         tileMap.draw(g);
         pelaaja.draw(g);
+        for(int i=0; i<viholliset.size(); i++) {
+            viholliset.get(i).draw(g);
+        }
     }
 
     @Override

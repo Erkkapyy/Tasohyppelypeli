@@ -22,6 +22,7 @@ public class Taso1Tila extends Pelitila {
     private Tausta tausta;
     private Pelaaja pelaaja;
     private ArrayList<Vihollinen> viholliset;
+    private HUD hud;
 
     /**
      * Konstruktori.
@@ -47,6 +48,7 @@ public class Taso1Tila extends Pelitila {
         vihu1 = new Vihu1(tileMap);
         vihu1.setPosition(100, 100);
         viholliset.add(vihu1);
+        hud = new HUD(pelaaja);
     }
 
     @Override
@@ -66,6 +68,7 @@ public class Taso1Tila extends Pelitila {
         for(int i=0; i<viholliset.size(); i++) {
             viholliset.get(i).draw(g);
         }
+        hud.draw(g);
     }
 
     @Override

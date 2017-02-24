@@ -16,6 +16,7 @@ import java.awt.image.BufferedImage;
  */
 public class Pelaaja extends MapObject {
 
+    private int lives;
     private int hp;
     private int maxHp;
     private boolean dead;
@@ -54,6 +55,7 @@ public class Pelaaja extends MapObject {
         jumpStart = -4.8;
         stopJumpSpeed = 0.3;
         facingRight = true;
+        lives = 3;
         hp = maxHp = 5;
         punchDamage = 8;
         punchRange = 40;
@@ -207,5 +209,9 @@ public class Pelaaja extends MapObject {
             }
         }
         super.draw(g);
+    }
+
+    public int getLives() {
+        return lives;
     }
 }

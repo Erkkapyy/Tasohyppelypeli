@@ -109,6 +109,7 @@ public class Vihu1 extends Vihollinen{
             left = false;
             facingRight = true;
         }
+        animation.update();
     }
     
     public void draw(java.awt.Graphics2D g) {

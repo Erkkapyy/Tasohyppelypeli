@@ -8,3 +8,4 @@ Päivä | Tunnit | Kuvaus
 16.02.2017 | 3h | Pelaaja- ja Animation luokkien toteutus
 17.02.2017 | 5h | Paljon debuggausta, omien spritesheettien luonnin yrittämistä, dokumentointia
 22.02.2017 | 4h | Resurssien muokkailua ja pelin hiontaa demotilaisuutta varten
+22.02.2017 | 5h | Vihollisten ja hudin luominen, rakennekuvauksen ja käyttöohjeiden kirjoitus, jar tiedoston luominen

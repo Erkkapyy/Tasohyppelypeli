@@ -26,6 +26,7 @@ public class Taso1Tila extends Pelitila {
 
     /**
      * Konstruktori.
+     *
      * @param pm PelitilaManager johon taso kuuluu
      */
     public Taso1Tila(PelitilaManager pm) {
@@ -55,7 +56,7 @@ public class Taso1Tila extends Pelitila {
     public void update() {
         pelaaja.update();
         tileMap.setPosition(PeliPaneeli.WIDTH / 2 - pelaaja.getx(), PeliPaneeli.HEIGHT / 2 - pelaaja.gety());
-        for(int i=0; i<viholliset.size(); i++) {
+        for (int i = 0; i < viholliset.size(); i++) {
             viholliset.get(i).update();
         }
     }
@@ -65,7 +66,7 @@ public class Taso1Tila extends Pelitila {
         tausta.draw(g);
         tileMap.draw(g);
         pelaaja.draw(g);
-        for(int i=0; i<viholliset.size(); i++) {
+        for (int i = 0; i < viholliset.size(); i++) {
             viholliset.get(i).draw(g);
         }
         hud.draw(g);

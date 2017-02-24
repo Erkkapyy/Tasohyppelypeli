@@ -94,6 +94,9 @@ public class Pelaaja extends MapObject {
         isPunching = true;
     }
 
+    /**
+     * Asettaa muuttujat valmiiksi seuraavaa liikettä varten.
+     */
     private void getNextPosition() {
         if (left) {
             dx -= moveSpeed;
@@ -198,6 +201,7 @@ public class Pelaaja extends MapObject {
 
     /**
      * Piirtää pelaajan.
+     *
      * @param g piirtomuuttuja
      */
     public void draw(Graphics2D g) {

@@ -233,7 +233,11 @@ public abstract class MapObject {
         return x + xmap + width < 0 || x + xmap - width > PeliPaneeli.WIDTH || y + ymap + height < 0 || y + ymap - height > PeliPaneeli.HEIGHT;
     }
     
-    public void draw (Graphics2D g) {
+    /**
+     * Piirtää objektin ruudulle.
+     * @param g piirtomuuttuja
+     */
+    public void draw(Graphics2D g) {
         if (facingRight) {
             g.drawImage(animation.getImage(), (int) (x + xmap - width / 2), (int) (y + ymap - height / 2), null);
         } else {

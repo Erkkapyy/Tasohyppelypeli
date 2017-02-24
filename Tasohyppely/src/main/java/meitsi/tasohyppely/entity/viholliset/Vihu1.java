@@ -11,12 +11,14 @@ import javax.imageio.ImageIO;
 import meitsi.tasohyppely.entity.*;
 import meitsi.tasohyppely.tilemap.TileMap;
 
-/**
- *
- * @author pyykonee
- */
-public class Vihu1 extends Vihollinen{
+public class Vihu1 extends Vihollinen {
+
     private BufferedImage[] sprites;
+
+    /**
+     * Konstruktori.
+     * @param tm tilemap johon vihollinen asetetaan.
+     */
     public Vihu1(TileMap tm) {
         super(tm);
         moveSpeed = 0.3;
@@ -29,7 +31,7 @@ public class Vihu1 extends Vihollinen{
         cheight = 20;
         health = maxHealth = 2;
         damage = 1;
-        
+
         try {
             BufferedImage spritesheet = ImageIO.read(getClass().getResourceAsStream("/Sprites/Enemies/slugger.gif"));
             sprites = new BufferedImage[3];
@@ -45,7 +47,10 @@ public class Vihu1 extends Vihollinen{
         right = true;
         facingRight = true;
     }
-    
+
+    /**
+     * Asettaa muuttujat valmiiksi seuraavaa liikettä varten.
+     */
     private void getNextPosition() {
         if (left) {
             dx -= moveSpeed;
@@ -87,34 +92,42 @@ public class Vihu1 extends Vihollinen{
             }
         }
     }
-    
+
+    /**
+     * Päivittää vihollisen sijainnin ja tarkistaa flinchauksen.
+     */
     @Override
     public void update() {
         getNextPosition();
         checkTileMapCollision();
         setPosition(xtemp, ytemp);
-        if(flinching) {
+        if (flinching) {
             long elapsed = (System.nanoTime() - flinchTimer) / 1000000;
-            if(elapsed>400) {
+            if (elapsed > 400) {
                 flinching = false;
             }
         }
-        
-        if(right && dx==0) {
+
+        if (right && dx == 0) {
             right = false;
             left = true;
             facingRight = false;
-        } else if(left && dx==0) {
+        } else if (left && dx == 0) {
             right = true;
             left = false;
             facingRight = true;
         }
         animation.update();
     }
-    
+
+    /**
+     * Piirtää vihollisen.
+     *
+     * @param g piirtomuuttuja
+     */
     public void draw(java.awt.Graphics2D g) {
         setMapPosition();
         super.draw(g);
     }
-    
+
 }

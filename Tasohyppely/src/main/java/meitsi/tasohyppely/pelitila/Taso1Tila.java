@@ -22,6 +22,7 @@ public class Taso1Tila extends Pelitila {
     private Tausta tausta;
     private Pelaaja pelaaja;
     private ArrayList<Vihollinen> viholliset;
+    private ArrayList<Explosion> explosions;
     private HUD hud;
 
     /**
@@ -45,19 +46,52 @@ public class Taso1Tila extends Pelitila {
         pelaaja = new Pelaaja(tileMap);
         pelaaja.setPosition(100, 100);
         viholliset = new ArrayList<Vihollinen>();
-        Vihu1 vihu1;
-        vihu1 = new Vihu1(tileMap);
-        vihu1.setPosition(100, 100);
-        viholliset.add(vihu1);
+        populateEnemies();
+        explosions = new ArrayList<Explosion>();
         hud = new HUD(pelaaja);
     }
 
+    private void populateEnemies() {
+        viholliset = new ArrayList<Vihollinen>();
+        Vihu1 v;
+        Point[] points = new Point[] {
+            new Point(200, 200),
+            new Point(350, 100),
+            new Point(860, 200),
+            new Point(1525, 200),
+            new Point(1680, 200),
+            new Point(1800, 200),
+        };
+        for(int i=0; i<points.length; i++) {
+            v = new Vihu1(tileMap);
+            v.setPosition(points[i].x, points[i].y);
+            viholliset.add(v);
+        }
+        
+    }
     @Override
     public void update() {
         pelaaja.update();
+        if(pelaaja.isDead()) {
+            pm.setTila(0);
+        }
         tileMap.setPosition(PeliPaneeli.WIDTH / 2 - pelaaja.getx(), PeliPaneeli.HEIGHT / 2 - pelaaja.gety());
+        pelaaja.checkAttack(viholliset);
         for (int i = 0; i < viholliset.size(); i++) {
-            viholliset.get(i).update();
+            Vihollinen v = viholliset.get(i);
+            v.update();
+            if(v.isDead()) {
+                viholliset.remove(i);
+                i--;
+                explosions.add(new Explosion(v.getx(), v.gety()));
+            }
+        }
+        for(int i=0; i<explosions.size(); i++) {
+            explosions.get(i).update();
+            if(explosions.get(i).shouldRemove()) {
+                explosions.remove(i);
+                i--;
+            }
         }
     }
 
@@ -68,6 +102,10 @@ public class Taso1Tila extends Pelitila {
         pelaaja.draw(g);
         for (int i = 0; i < viholliset.size(); i++) {
             viholliset.get(i).draw(g);
+        }
+        for(int i=0; i<explosions.size(); i++) {
+            explosions.get(i).setMapPosition((int) tileMap.getx(), (int) tileMap.gety());
+            explosions.get(i).draw(g);
         }
         hud.draw(g);
     }

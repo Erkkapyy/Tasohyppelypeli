@@ -93,6 +93,52 @@ public class Pelaaja extends MapObject {
     public void setPunching() {
         isPunching = true;
     }
+    
+    public void checkAttack(ArrayList<Vihollinen> viholliset) {
+        if(isPunching) {
+            if(facingRight) {
+                for(int i=0; i<viholliset.size(); i++) {
+                    Vihollinen v = viholliset.get(i);
+                    if(v.getx() > x && v.getx() < x + punchRange && v.gety() > y - height / 2 && v.gety() < y + height / 2) {
+                        v.hit(punchDamage);
+                    }
+                }
+            } else {
+                for(int i=0; i<viholliset.size(); i++) {
+                    Vihollinen v = viholliset.get(i);
+                    if(v.getx() < x && v.getx() > x - punchRange && v.gety() > y - height / 2 && v.gety() < y + height / 2) {
+                        v.hit(punchDamage);
+                    }
+                }
+            }
+        }
+        for(int i=0; i<viholliset.size(); i++) {
+            Vihollinen v = viholliset.get(i);
+            if(intersects(v)) {
+                hit(v.getDamage());
+            }
+        }        
+    }
+    
+    public void hit(int damage) {
+        if (dead || isFlinching) {
+            return;
+        }
+        hp -= damage;
+        if (hp < 0) {
+            hp = 0;
+        }
+        if (hp == 0) {
+            if(lives == 0) {
+                dead = true;
+            }
+            setPosition(100, 100);
+            lives--;
+            hp = maxHp;
+        }
+        isFlinching = true;
+        flinchTimer = System.nanoTime();
+    }
 
     /**
      * Asettaa muuttujat valmiiksi seuraavaa liikettä varten.
@@ -189,6 +235,12 @@ public class Pelaaja extends MapObject {
             }
         }
         animation.update();
+        if(isFlinching) {
+            long elapsed = (System.nanoTime() -flinchTimer) / 1000000;
+            if(elapsed > 1000) {
+                isFlinching = false;
+            }
+        }
         if (currentAction != punching) {
             if (right) {
                 facingRight = true;
@@ -196,6 +248,16 @@ public class Pelaaja extends MapObject {
             if (left) {
                 facingRight = false;
             }
+        }
+        if(notOnScreen()) {
+            lives--;
+            if(lives == 0) {
+                dead = true;
+            }
+            hp = maxHp;
+            setPosition(100, 100);
+            isFlinching = true;
+            flinchTimer = System.nanoTime();
         }
     }
 
@@ -217,5 +279,9 @@ public class Pelaaja extends MapObject {
 
     public int getLives() {
         return lives;
+    }
+    
+    public boolean isDead() {
+        return dead;
     }
 }

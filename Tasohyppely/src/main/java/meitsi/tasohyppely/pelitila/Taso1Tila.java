@@ -54,7 +54,7 @@ public class Taso1Tila extends Pelitila {
     private void populateEnemies() {
         viholliset = new ArrayList<Vihollinen>();
         Vihu1 v;
-        Point[] points = new Point[] {
+        Point[] points = new Point[]{
             new Point(200, 200),
             new Point(350, 100),
             new Point(860, 200),
@@ -67,17 +67,18 @@ public class Taso1Tila extends Pelitila {
             new Point(2950, 200),
             new Point(3050, 200),
         };
-        for(int i=0; i<points.length; i++) {
+        for (int i = 0; i < points.length; i++) {
             v = new Vihu1(tileMap);
             v.setPosition(points[i].x, points[i].y);
             viholliset.add(v);
         }
-        
+
     }
+
     @Override
     public void update() {
         pelaaja.update();
-        if(pelaaja.isDead()) {
+        if (pelaaja.isDead()) {
             pm.setTila(0);
         }
         tileMap.setPosition(PeliPaneeli.WIDTH / 2 - pelaaja.getx(), PeliPaneeli.HEIGHT / 2 - pelaaja.gety());
@@ -85,20 +86,20 @@ public class Taso1Tila extends Pelitila {
         for (int i = 0; i < viholliset.size(); i++) {
             Vihollinen v = viholliset.get(i);
             v.update();
-            if(v.isDead()) {
+            if (v.isDead()) {
                 viholliset.remove(i);
                 i--;
                 explosions.add(new Explosion(v.getx(), v.gety()));
             }
         }
-        for(int i=0; i<explosions.size(); i++) {
+        for (int i = 0; i < explosions.size(); i++) {
             explosions.get(i).update();
-            if(explosions.get(i).shouldRemove()) {
+            if (explosions.get(i).shouldRemove()) {
                 explosions.remove(i);
                 i--;
             }
         }
-        if(pelaaja.getx() > 3075) {
+        if (pelaaja.getx() > 3075) {
             pm.setTila(2);
         }
     }
@@ -111,7 +112,7 @@ public class Taso1Tila extends Pelitila {
         for (int i = 0; i < viholliset.size(); i++) {
             viholliset.get(i).draw(g);
         }
-        for(int i=0; i<explosions.size(); i++) {
+        for (int i = 0; i < explosions.size(); i++) {
             explosions.get(i).setMapPosition((int) tileMap.getx(), (int) tileMap.gety());
             explosions.get(i).draw(g);
         }

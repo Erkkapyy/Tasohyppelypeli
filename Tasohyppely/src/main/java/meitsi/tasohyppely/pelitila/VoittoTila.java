@@ -8,16 +8,17 @@ package meitsi.tasohyppely.pelitila;
 import java.awt.*;
 import meitsi.tasohyppely.tilemap.Tausta;
 
-/**
- *
- * @author pyykonee
- */
+
 public class VoittoTila extends Pelitila {
 
     private Tausta tausta;
     private Color titleColor;
     private Font titleFont;
 
+    /**
+     * Konstruktori.
+     * @param pm parametrina saatu PelitilaManager
+     */
     public VoittoTila(PelitilaManager pm) {
         this.pm = pm;
 

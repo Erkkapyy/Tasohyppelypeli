@@ -31,6 +31,10 @@ public class PelitilaManager {
         pelitilat.add(new VoittoTila(this));
     }
 
+    /**
+     * Asettaa uuden tilan ja käynnistää sen.
+     * @param tila uusi käynnistettävä tila
+     */
     public void setTila(int tila) {
         tilaNyt = tila;
         pelitilat.get(tilaNyt).init();

@@ -189,6 +189,14 @@ public abstract class MapObject {
     public int getCHeight() {
         return cheight;
     }
+    
+    public double getdx() {
+        return dx;
+    }
+    
+    public double getdy() {
+        return dy;
+    }
 
     public void setPosition(double x, double y) {
         this.x = x;

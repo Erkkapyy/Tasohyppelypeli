@@ -94,33 +94,42 @@ public class Pelaaja extends MapObject {
     public void setPunching() {
         isPunching = true;
     }
-    
+
+    /**
+     * Tarkistaa lyökö pelaaja vihollista, tai osuuko se sellaiseen.
+     *
+     * @param viholliset kaikkien vihollisten lista
+     */
     public void checkAttack(ArrayList<Vihollinen> viholliset) {
-        if(isPunching) {
-            if(facingRight) {
-                for(int i=0; i<viholliset.size(); i++) {
+        if (isPunching) {
+            if (facingRight) {
+                for (int i = 0; i < viholliset.size(); i++) {
                     Vihollinen v = viholliset.get(i);
-                    if(v.getx() > x && v.getx() < x + punchRange && v.gety() > y - height / 2 && v.gety() < y + height / 2) {
+                    if (v.getx() > x && v.getx() < x + punchRange && v.gety() > y - height / 2 && v.gety() < y + height / 2) {
                         v.hit(punchDamage);
                     }
                 }
             } else {
-                for(int i=0; i<viholliset.size(); i++) {
+                for (int i = 0; i < viholliset.size(); i++) {
                     Vihollinen v = viholliset.get(i);
-                    if(v.getx() < x && v.getx() > x - punchRange && v.gety() > y - height / 2 && v.gety() < y + height / 2) {
+                    if (v.getx() < x && v.getx() > x - punchRange && v.gety() > y - height / 2 && v.gety() < y + height / 2) {
                         v.hit(punchDamage);
                     }
                 }
             }
         }
-        for(int i=0; i<viholliset.size(); i++) {
+        for (int i = 0; i < viholliset.size(); i++) {
             Vihollinen v = viholliset.get(i);
-            if(intersects(v)) {
+            if (intersects(v)) {
                 hit(v.getDamage());
             }
-        }        
+        }
     }
-    
+
+    /**
+     * Hoitaa tapahtuman jossa pelaaja ottaa iskua viholliselta.
+     * @param damage saadun vahingon määrä
+     */
     public void hit(int damage) {
         if (isFlinching) {
             return;
@@ -129,7 +138,7 @@ public class Pelaaja extends MapObject {
         if (hp < 0) {
             hp = 0;
         }
-        
+
         isFlinching = true;
         flinchTimer = System.nanoTime();
     }
@@ -229,9 +238,9 @@ public class Pelaaja extends MapObject {
             }
         }
         animation.update();
-        if(isFlinching) {
-            long elapsed = (System.nanoTime() -flinchTimer) / 1000000;
-            if(elapsed > 1000) {
+        if (isFlinching) {
+            long elapsed = (System.nanoTime() - flinchTimer) / 1000000;
+            if (elapsed > 1000) {
                 isFlinching = false;
             }
         }
@@ -243,9 +252,9 @@ public class Pelaaja extends MapObject {
                 facingRight = false;
             }
         }
-        if(notOnScreen()) {
+        if (notOnScreen()) {
             lives--;
-            if(lives == 0) {
+            if (lives == 0) {
                 dead = true;
             }
             hp = maxHp;
@@ -258,7 +267,7 @@ public class Pelaaja extends MapObject {
             lives--;
             hp = maxHp;
         }
-        if(lives == 0) {
+        if (lives == 0) {
             dead = true;
         }
     }
@@ -282,7 +291,7 @@ public class Pelaaja extends MapObject {
     public int getLives() {
         return lives;
     }
-    
+
     public boolean isDead() {
         return dead;
     }

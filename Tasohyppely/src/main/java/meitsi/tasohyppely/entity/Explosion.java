@@ -4,15 +4,14 @@
  * and open the template in the editor.
  */
 package meitsi.tasohyppely.entity;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
-/**
- *
- * @author pyykonee
- */
+
+
 public class Explosion {
-    
+
     private int x;
     private int y;
     private int xmap;
@@ -22,43 +21,51 @@ public class Explosion {
     private Animation animation;
     private BufferedImage[] sprites;
     private boolean remove;
-    
+
+    /**
+     * Konstruktori.
+     * @param x x-koordinaatti jossa räjähdyksen tulisi tapahtua
+     * @param y y-koordinaatti jossa räjähdyksen tulisi tapahtua
+     */
     public Explosion(int x, int y) {
         this.x = x;
         this.y = y;
         width = 30;
         height = 30;
-        try{
+        try {
             BufferedImage spritesheet = ImageIO.read(getClass().getResourceAsStream("/Sprites/Enemies/explosion.gif"));
             sprites = new BufferedImage[6];
-            for(int i=0; i<sprites.length; i++) {
-                sprites[i] = spritesheet.getSubimage(i*width, 0, width, height);
+            for (int i = 0; i < sprites.length; i++) {
+                sprites[i] = spritesheet.getSubimage(i * width, 0, width, height);
             }
-        } catch(Exception e) {
-        e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         animation = new Animation();
         animation.setFrames(sprites);
         animation.setDelay(70);
     }
-    
+
+    /**
+     * Päivittää animaatiota ja asettaa sen poistettavaksi kun kaikki framet on käyty läpi kerran.
+     */
     public void update() {
         animation.update();
-        if(animation.hasPlayedOnce()) {
+        if (animation.hasPlayedOnce()) {
             remove = true;
         }
     }
-    
+
     public boolean shouldRemove() {
         return remove;
     }
-    
+
     public void setMapPosition(int x, int y) {
         xmap = x;
         ymap = y;
     }
-    
+
     public void draw(Graphics2D g) {
-        g.drawImage(animation.getImage(), x+xmap-width/2, y+ymap-height/2, null);
+        g.drawImage(animation.getImage(), x + xmap - width / 2, y + ymap - height / 2, null);
     }
 }

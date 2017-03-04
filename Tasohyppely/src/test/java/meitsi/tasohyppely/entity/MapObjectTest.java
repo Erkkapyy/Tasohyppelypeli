@@ -56,5 +56,53 @@ public class MapObjectTest {
         pelaaja.update();
     }
     
+    @Test
+    public void collisionToimii() {
+        boolean osuvatko = false;
+        Pelaaja pelaaja1 = new Pelaaja(tileMap);
+        Pelaaja pelaaja2 = new Pelaaja(tileMap);
+        pelaaja1.setPosition(0, 0);
+        pelaaja2.setPosition(10, 0);
+        pelaaja1.setRight(true);
+        pelaaja2.setLeft(true);
+        for(int i=0; i<7; i++) {
+            pelaaja1.update();
+            pelaaja2.update();
+            if(pelaaja1.intersects(pelaaja2)) {
+                osuvatko = true;
+            }
+        }
+        assertEquals(true, osuvatko);
+    }
     
+    @Test
+    public void liikkuminenToimii() {
+        Pelaaja pelaaja = new Pelaaja(tileMap);
+        pelaaja.setRight(true);
+        pelaaja.update();
+        pelaaja.update();
+        pelaaja.update();
+        pelaaja.update();
+        assertEquals(3, pelaaja.getx());
+    }
+    
+    @Test
+    public void painovoimaToimii() {
+        Pelaaja pelaaja = new Pelaaja(tileMap);
+        double haluttuKorkeus = 200;
+        double nopeus = 4.8;
+        int actual = 0;
+        pelaaja.setJumping(true);
+        pelaaja.setPosition(200,200);
+        for(int i=0; i<64; i++) {
+            pelaaja.update();
+            nopeus -= 0.15;
+                if(nopeus<-4) {
+                    nopeus = -4;
+                }
+                haluttuKorkeus -= nopeus;
+            actual = pelaaja.gety();
+            assertEquals(haluttuKorkeus, actual, 0.99);
+        }
+    }
 }

@@ -61,6 +61,11 @@ public class Taso1Tila extends Pelitila {
             new Point(1525, 200),
             new Point(1680, 200),
             new Point(1800, 200),
+            new Point(2900, 200),
+            new Point(3000, 200),
+            new Point(3100, 200),
+            new Point(2950, 200),
+            new Point(3050, 200),
         };
         for(int i=0; i<points.length; i++) {
             v = new Vihu1(tileMap);
@@ -92,6 +97,9 @@ public class Taso1Tila extends Pelitila {
                 explosions.remove(i);
                 i--;
             }
+        }
+        if(pelaaja.getx() > 3075) {
+            pm.setTila(2);
         }
     }
 

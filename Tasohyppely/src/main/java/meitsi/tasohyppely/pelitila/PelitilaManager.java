@@ -17,6 +17,7 @@ public class PelitilaManager {
 
     public static final int MENUTILA = 0;
     public static final int TASO1TILA = 1;
+    public static final int VOITTOTILA = 2;
 
     /**
      * Konstruktori.
@@ -27,6 +28,7 @@ public class PelitilaManager {
         tilaNyt = MENUTILA;
         pelitilat.add(new MenuTila(this));
         pelitilat.add(new Taso1Tila(this));
+        pelitilat.add(new VoittoTila(this));
     }
 
     public void setTila(int tila) {

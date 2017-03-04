@@ -55,8 +55,8 @@ public class Pelaaja extends MapObject {
         jumpStart = -4.8;
         stopJumpSpeed = 0.3;
         facingRight = true;
-        lives = 3;
-        hp = maxHp = 5;
+        lives = 2;
+        hp = maxHp = 3;
         punchDamage = 8;
         punchRange = 40;
         try {

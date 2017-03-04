@@ -6,7 +6,9 @@
 package meitsi.tasohyppely.entity;
 
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 import javax.swing.JFrame;
+import meitsi.tasohyppely.entity.viholliset.*;
 import meitsi.tasohyppely.main.PeliPaneeli;
 import meitsi.tasohyppely.pelitila.PelitilaManager;
 import meitsi.tasohyppely.pelitila.Taso1Tila;
@@ -84,6 +86,18 @@ public class MapObjectTest {
         pelaaja.update();
         pelaaja.update();
         assertEquals(3, pelaaja.getx());
+        pelaaja.setRight(false);
+        pelaaja.update();
+        pelaaja.update();
+        pelaaja.update();
+        pelaaja.update();
+        pelaaja.setLeft(true);
+        pelaaja.update();
+        pelaaja.update();
+        pelaaja.update();
+        pelaaja.update();
+        pelaaja.update();
+        assertEquals(0, pelaaja.getx());
     }
     
     @Test
@@ -104,5 +118,54 @@ public class MapObjectTest {
             actual = pelaaja.gety();
             assertEquals(haluttuKorkeus, actual, 0.99);
         }
+    }
+    
+    @Test
+    public void iskunottoMekaniikkaToimii() {
+        Pelaaja pelaaja = new Pelaaja(tileMap);
+        Vihu1 vihollinen = new Vihu1(tileMap);
+        ArrayList<Vihollinen> vihut = new ArrayList();
+        vihut.add(vihollinen);
+        vihollinen.setPosition(3, 0);
+        pelaaja.setRight(true);
+        pelaaja.update();
+        pelaaja.update();
+        pelaaja.update();
+        pelaaja.update();
+        pelaaja.checkAttack(vihut);
+        assertEquals(2, pelaaja.getHp());
+        
+    }
+    
+    @Test
+    public void vihollisenIskeminenToimii() {
+        Pelaaja pelaaja = new Pelaaja(tileMap);
+        Vihu1 vihollinen = new Vihu1(tileMap);
+        ArrayList<Vihollinen> vihut = new ArrayList();
+        vihut.add(vihollinen);
+        vihollinen.setPosition(1, 0);
+        pelaaja.setRight(true);
+        pelaaja.setPunching();
+        pelaaja.checkAttack(vihut);
+        assertEquals(true, vihollinen.isDead());
+    }
+    
+    @Test
+    public void mapistaPutoamisenHallintaToimii() {
+        Pelaaja pelaaja = new Pelaaja(tileMap);
+        pelaaja.setPosition(-41, 0);
+        pelaaja.update();
+        assertEquals(1, pelaaja.getLives());
+        assertEquals(100, pelaaja.getx());
+        assertEquals(100, pelaaja.gety());
+    }
+    
+    @Test
+    public void vihollisenLiikkuminenToimii() {
+        Vihu1 vihollinen = new Vihu1(tileMap);
+        for(int i =0; i<7; i++) {
+        vihollinen.update();
+        }
+        assertEquals(2, vihollinen.getx());
     }
 }

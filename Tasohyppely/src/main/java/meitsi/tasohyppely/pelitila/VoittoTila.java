@@ -12,12 +12,12 @@ import meitsi.tasohyppely.tilemap.Tausta;
  *
  * @author pyykonee
  */
-public class VoittoTila extends Pelitila{
-    
+public class VoittoTila extends Pelitila {
+
     private Tausta tausta;
     private Color titleColor;
     private Font titleFont;
-    
+
     public VoittoTila(PelitilaManager pm) {
         this.pm = pm;
 
@@ -53,5 +53,5 @@ public class VoittoTila extends Pelitila{
     @Override
     public void keyReleased(int k) {
     }
-    
+
 }

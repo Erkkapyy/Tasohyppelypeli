@@ -59,6 +59,7 @@ public class Pelaaja extends MapObject {
         hp = maxHp = 3;
         punchDamage = 8;
         punchRange = 40;
+        dead = false;
         try {
             BufferedImage spritesheet = ImageIO.read(getClass().getResourceAsStream("/Sprites/Player/playersprites2.gif"));
             sprites = new ArrayList<BufferedImage[]>();
@@ -121,21 +122,14 @@ public class Pelaaja extends MapObject {
     }
     
     public void hit(int damage) {
-        if (dead || isFlinching) {
+        if (isFlinching) {
             return;
         }
         hp -= damage;
         if (hp < 0) {
             hp = 0;
         }
-        if (hp == 0) {
-            if(lives == 0) {
-                dead = true;
-            }
-            setPosition(100, 100);
-            lives--;
-            hp = maxHp;
-        }
+        
         isFlinching = true;
         flinchTimer = System.nanoTime();
     }
@@ -258,6 +252,14 @@ public class Pelaaja extends MapObject {
             setPosition(100, 100);
             isFlinching = true;
             flinchTimer = System.nanoTime();
+        }
+        if (hp == 0) {
+            setPosition(100, 100);
+            lives--;
+            hp = maxHp;
+        }
+        if(lives == 0) {
+            dead = true;
         }
     }
 

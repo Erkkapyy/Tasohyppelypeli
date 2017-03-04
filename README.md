@@ -11,3 +11,6 @@ Yksinkertainen tasohyppelypeli, jossa pyritään liikuttamaan hahmo kentän läp
 [Pit-raportti] (https://htmlpreview.github.io/?https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/Dokumentaatio/pit/201703042056/index.html)
 
 [Käyttöohjeet](Dokumentaatio/ohjeet.md)
+
+[Testausdokumentti] (https://htmlpreview.github.io/?
+https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/testausdokumentti.md)

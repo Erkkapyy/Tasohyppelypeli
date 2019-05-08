@@ -6,10 +6,10 @@ Yksinkertainen tasohyppelypeli, jossa pyritään liikuttamaan hahmo kentän läp
 
 [tuntikirjanpito](Dokumentaatio/tuntikirjanpito.md)
 
-[Checkstyle-raportti] (https://htmlpreview.github.io/?https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/Dokumentaatio/site/checkstyle.html) (Kaikki javadoc virheet ovat gettereistä/settereistä)
+[Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/Dokumentaatio/site/checkstyle.html) (Kaikki javadoc virheet ovat gettereistä/settereistä)
 
-[Pit-raportti] (https://htmlpreview.github.io/?https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/Dokumentaatio/pit/201703042056/index.html)
+[Pit-raportti](https://htmlpreview.github.io/?https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/Dokumentaatio/pit/201703042056/index.html)
 
 [Käyttöohjeet](Dokumentaatio/ohjeet.md)
 
-[Testausdokumentti] (https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/testausdokumentti.md)
+[Testausdokumentti](https://github.com/Erkkapyy/Tasohyppelypeli/blob/master/testausdokumentti.md)

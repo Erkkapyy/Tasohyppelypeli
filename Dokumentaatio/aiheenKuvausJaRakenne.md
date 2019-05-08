@@ -1,4 +1,4 @@
-##Aihemäärittely
+## Aihemäärittely
 **Aihe**: Tasohyppely. Toteutetaan peli, jossa käyttäjä ohjaa  hahmoa läpi kenttien, joissa esiintyy vihollisia tai erilaisia esteitä. Hahmo pystyy lyömällä tuhoamaan vihollisia.
 
 **Käyttäjät**: Pelaaja
